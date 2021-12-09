@@ -11,8 +11,21 @@
     <div class="col-md-12">
       <h2>Items</h2>
       <ul class="list-group mb-4">
-        <!-- List the todo items here -->
+        <!-- List the todo items here --> 
+
+          {% for item in get_items() %}
+          
+            <li>{{ item.title }}</li>
+        
+          {% endfor %}
+        
       </ul>
+      <!-- setting the URL path for where the form is to be 'posted' to -->
+      <form action="/additem" method="post">
+        <input type="text" name="title" class="form_input">
+        <input type="submit" name="submit" class="form_input_button">
+      </form>
+
     </div>
   </div>
 {% endblock %}

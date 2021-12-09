@@ -1,0 +1,18 @@
+.form {
+    
+}
+
+.form_input {
+    border: 0em;
+    margin-right: 0em;
+}
+
+.form_input_button {
+    border: 0em;
+}
+
+.form_input_button:hover {
+    background-color: green;
+    color: white;
+}
+
