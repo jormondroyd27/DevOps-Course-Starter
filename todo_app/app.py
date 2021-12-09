@@ -9,7 +9,7 @@ app.config.from_object(Config())
 @app.route('/', methods=["GET"])
 def index():
     # renders index.html to the route '/' and passes the argument get_items() from session_items.py file
-    return render_template('index.html', get_items = get_items)
+    return render_template('index.html', items=get_items())
 
 # adding a new route and setting request method to POST
 @app.route('/additem', methods=["POST"])
