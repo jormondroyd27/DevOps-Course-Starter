@@ -50,3 +50,9 @@ You should see output similar to the following:
  * Debugger PIN: 226-556-590
 ```
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
+
+## Setting up your App
+
+1. Create a Trello Account.
+2. Grab your API Key and Token by following [these instructions](https://trello.com/app-key).
+3. Store your API Key & Token in the .env file
