@@ -28,14 +28,14 @@
             
             <div class="buttonz">
 
-              <form method="post" action="/delete/{{item.id}}">
-                <input type="hidden" name="remove" value="{{item.id}}">
-                <input type="submit" name="remove" value="Delete!">
-              </form>
-  
               <form method="post" action="/move_doing/{{item.id}}">
                 <input type="hidden" name="move_to_doing" value="{{item.id}}">
                 <input type="submit" name="move" value="Move!" data-source="{{item.id}}">
+              </form>
+
+              <form method="post" action="/delete/{{item.id}}">
+                <input type="hidden" name="remove" value="{{item.id}}">
+                <input type="submit" name="remove" value="Delete!">
               </form>
 
             </div>
@@ -74,14 +74,14 @@
 
               <div class="buttonz">
 
-                <form method="post" action="/delete/{{item.id}}">
-                  <input type="hidden" name="remove" value="{{item.id}}">
-                  <input type="submit" name="remove" value="Delete!">
-                </form>
-  
                 <form method="post" action="/move_done/{{item.id}}">
                   <input type="hidden" name="move_to_done" value="{{item.id}}">
                   <input type="submit" name="move" value="Move!" data-source="{{item.id}}">
+                </form>
+
+                <form method="post" action="/delete/{{item.id}}">
+                  <input type="hidden" name="remove" value="{{item.id}}">
+                  <input type="submit" name="remove" value="Delete!">
                 </form>
 
               </div>
