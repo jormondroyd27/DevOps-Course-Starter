@@ -2,7 +2,7 @@ from distutils.log import debug
 from flask import Flask, url_for, render_template, redirect, request
 from todo_app.flask_config import Config
 from todo_app.data.trello_items import fetch_list, create_todo_card, create_doing_card, create_done_card, delete_card, move_card_doing, move_card_done
-
+from todo_app.data.viewmodel import ViewModel
 import os
 import requests
 from dotenv import load_dotenv
@@ -26,7 +26,8 @@ def index():
     todo_lists = fetch_list(TODO_LIST)
     doing_lists = fetch_list(DOING_LIST)
     done_lists = fetch_list(DONE_LIST)
-    return render_template('index.html', todo_lists=todo_lists, doing_lists=doing_lists, done_lists=done_lists)
+    item_view_model = ViewModel(todo_lists, doing_lists, done_lists)
+    return render_template('index.html', view_model=item_view_model)
 
 @app.route('/addtodo', methods=["POST"])
 def add_todo():

@@ -16,7 +16,7 @@
         <h2>To Do List</h2>
         <ul class="list-group mb-4">
         <!-- List the todo items here --> 
-          {% for item in todo_lists %}
+          {% for item in view_model.todo_lists %}
 
           <div class="item">
 
@@ -62,7 +62,7 @@
         <h2>Doing List</h2>
         <ul class="list-group mb-4">
         <!-- List the doing items here --> 
-          {% for item in doing_lists %}
+          {% for item in view_model.doing_lists %}
 
             <div class="item">
 
@@ -108,7 +108,7 @@
         <h2>Done List</h2>
         <ul class="list-group mb-4">
         <!-- List the doing items here -->   
-        {% for item in done_lists %}
+        {% for item in view_model.done_lists %}
 
         <div class="item">
 
