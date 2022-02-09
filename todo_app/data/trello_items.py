@@ -22,12 +22,12 @@ def fetch_list(list_id):
         'lists' : 'open'
     }
     response = requests.get(url, data=query).json()
-    todo_items: list_id[TodoItem] = []
+    items: list_id[TodoItem] = []
     for card in response['cards']:
         if card['idList'] == list_id:
-            todo_item = TodoItem(card["id"], card["name"])
-            todo_items.append(todo_item)
-    return todo_items
+            item = TodoItem(card["id"], card["name"])
+            items.append(item)
+    return items
 
 def create_todo_card(name):
     url = f'https://api.trello.com/1/cards'
