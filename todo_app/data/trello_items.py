@@ -3,17 +3,10 @@ import os
 
 from todo_app.data.todo_item import TodoItem
 
-SECRET_KEY = os.getenv('SECRET_KEY')
-SECRET_TOKEN = os.getenv('SECRET_TOKEN')
-SECRET_SECRET = os.getenv('SECRET_SECRET')
-BOARD_ID = os.getenv('BOARD_ID')
-CARD_ID = os.getenv('CARD_ID')
-TODO_LIST = os.getenv('todo_list')
-DOING_LIST = os.getenv('doing_list')
-DONE_LIST = os.getenv('done_list')
-BOARD_ID = os.getenv('BOARD_ID')
-
 def fetch_list(list_id):
+    SECRET_KEY = os.getenv('SECRET_KEY')
+    SECRET_TOKEN = os.getenv('SECRET_TOKEN')
+    BOARD_ID = os.getenv('BOARD_ID')
     url = f"https://api.trello.com/1/boards/{BOARD_ID}"
     query = {
         'key' : SECRET_KEY,
@@ -30,6 +23,9 @@ def fetch_list(list_id):
     return items
 
 def create_todo_card(name):
+    SECRET_KEY = os.getenv('SECRET_KEY')
+    SECRET_TOKEN = os.getenv('SECRET_TOKEN')
+    TODO_LIST = os.getenv('todo_list')
     url = f'https://api.trello.com/1/cards'
     query = {
         'idList' : TODO_LIST,
@@ -40,6 +36,9 @@ def create_todo_card(name):
     return requests.post(url, data=query).json()
 
 def create_doing_card(name):
+    DOING_LIST = os.getenv('doing_list')
+    SECRET_KEY = os.getenv('SECRET_KEY')
+    SECRET_TOKEN = os.getenv('SECRET_TOKEN')
     url = f'https://api.trello.com/1/cards'
     query = {
         'idList' : DOING_LIST,
@@ -50,6 +49,9 @@ def create_doing_card(name):
     return requests.post(url, data=query).json()
 
 def create_done_card(name):
+    DONE_LIST = os.getenv('done_list')
+    SECRET_KEY = os.getenv('SECRET_KEY')
+    SECRET_TOKEN = os.getenv('SECRET_TOKEN')
     url = f'https://api.trello.com/1/cards'
     query = {
         'idList' : DONE_LIST,
@@ -60,6 +62,8 @@ def create_done_card(name):
     return requests.post(url, data=query).json()
 
 def delete_card(id):
+    SECRET_KEY = os.getenv('SECRET_KEY')
+    SECRET_TOKEN = os.getenv('SECRET_TOKEN')
     url = f'https://api.trello.com/1/cards/{id}?key={SECRET_KEY}&token={SECRET_TOKEN}'
     headers = {
     "Accept": "application/json"
@@ -67,6 +71,9 @@ def delete_card(id):
     return requests.delete(url, data=headers).json()
 
 def move_card_doing(id):
+    SECRET_KEY = os.getenv('SECRET_KEY')
+    SECRET_TOKEN = os.getenv('SECRET_TOKEN')
+    DOING_LIST = os.getenv('doing_list')
     url = f'https://api.trello.com/1/cards/{id}?idList={DOING_LIST}&key={SECRET_KEY}&token={SECRET_TOKEN}'
     headers = {
     "Accept": "application/json"
@@ -74,6 +81,9 @@ def move_card_doing(id):
     return requests.put(url, data=headers).json()
 
 def move_card_done(id):
+    DONE_LIST = os.getenv('done_list')
+    SECRET_KEY = os.getenv('SECRET_KEY')
+    SECRET_TOKEN = os.getenv('SECRET_TOKEN')
     url = f'https://api.trello.com/1/cards/{id}?idList={DONE_LIST}&key={SECRET_KEY}&token={SECRET_TOKEN}'
     headers = {
     "Accept": "application/json"
