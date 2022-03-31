@@ -1,18 +1,74 @@
+
+.row .container {
+    display: flex;
+    justify-content: center;
+}
+
+.row .card {
+    border-radius: 0.5em;
+    background-color: #67c288;
+    background-color: #7ed56f;
+    margin: 2em 2em;
+    width: 30%;
+}
+
+.card h2 {
+    margin-top: 0.25em;
+    margin-left: 0.25em;
+    text-align: center;
+    color: #fff;
+}
+
+.card ul li {
+    margin: 0.25em 0.5em;
+}
+
+.list-group {
+    text-decoration: none;
+    list-style: none;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
 .form {
-    
+    margin: 0.5em;
 }
 
-.form_input {
-    border: 0em;
-    margin-right: 0em;
+.form form {
+    display: flex;
+    flex-direction: column;
 }
 
-.form_input_button {
-    border: 0em;
+.form form input {
+    margin-bottom: 0.5em;
 }
 
-.form_input_button:hover {
-    background-color: green;
-    color: white;
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px green solid;
+    border-radius: 0.5em;
+    margin: 0.5em;
+    background: #a2dcb3;
 }
 
+.item li {
+    padding: 0 0.5em;
+    border-radius: 0.5em;
+    width: auto;
+}
+
+.item form input {
+    margin: 0.5em;
+    background: #1f8649;
+    border-radius: 0.5em;
+    color: #fff;
+}
+
+.buttonz {
+    display: flex;
+}

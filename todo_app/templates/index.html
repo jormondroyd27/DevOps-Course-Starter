@@ -8,24 +8,144 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12">
-      <h2>Items</h2>
-      <ul class="list-group mb-4">
-        <!-- List the todo items here --> 
 
-          {% for item in get_items() %}
-          
-            <li>{{ item.title }}</li>
-        
+    <div class="col-md-12 container">
+      
+      <div class='card'>
+
+        <h2>To Do List</h2>
+        <ul class="list-group mb-4">
+        <!-- List the todo items here --> 
+          {% for item in view_model.todo_lists %}
+
+          <div class="item">
+
+            <div class="title">
+
+              <li>{{ item.title }}</li>
+            
+            </div>
+            
+            <div class="buttonz">
+
+              <form method="post" action="/move_doing/{{item.id}}">
+                <input type="hidden" name="move_to_doing" value="{{item.id}}">
+                <input type="submit" name="move" value="Move!" data-source="{{item.id}}">
+              </form>
+
+              <form method="post" action="/delete/{{item.id}}">
+                <input type="hidden" name="remove" value="{{item.id}}">
+                <input type="submit" name="remove" value="Delete!">
+              </form>
+
+            </div>
+
+          </div>
+
           {% endfor %}
-        
-      </ul>
-      <!-- setting the URL path for where the form is to be 'posted' to -->
-      <form action="/additem" method="post">
-        <input type="text" name="title" class="form_input">
-        <input type="submit" name="submit" class="form_input_button">
-      </form>
+
+        </ul>
+        <!-- setting the URL path for where the form is to be 'posted' to -->
+        <div class='form'>
+
+          <form action="/addtodo" method="post">
+            <input class="textbox" type="text" name="name" placeholder="Add a card">
+            <input class="addcard" type="submit" name="" value="Add Card">
+          </form>
+
+        </div>
+
+      </div>
+      
+      <div class='card'>
+
+        <h2>Doing List</h2>
+        <ul class="list-group mb-4">
+        <!-- List the doing items here --> 
+          {% for item in view_model.doing_lists %}
+
+            <div class="item">
+
+              <div class="textbox">
+
+                <li>{{ item.title }}</li>
+
+              </div>
+
+              <div class="buttonz">
+
+                <form method="post" action="/move_done/{{item.id}}">
+                  <input type="hidden" name="move_to_done" value="{{item.id}}">
+                  <input type="submit" name="move" value="Move!" data-source="{{item.id}}">
+                </form>
+
+                <form method="post" action="/delete/{{item.id}}">
+                  <input type="hidden" name="remove" value="{{item.id}}">
+                  <input type="submit" name="remove" value="Delete!">
+                </form>
+
+              </div>
+              
+            </div>
+            
+          {% endfor %}
+  
+        </ul>
+        <!-- setting the URL path for where the form is to be 'posted' to -->
+        <div class='form'>
+
+          <form action="/adddoing" method="post">
+            <input type="text" name="name" placeholder="Add a card">
+            <input type="submit" name="submit" value="Add Card">
+          </form>
+
+        </div>
+
+      </div>
+  
+      <div class='card'>
+
+        <h2>Done List</h2>
+        <ul class="list-group mb-4">
+        <!-- List the doing items here -->   
+        {% for item in view_model.done_lists %}
+
+        <div class="item">
+
+          <div class="textbox">
+
+            <li>{{ item.title }}</li>
+          
+          </div>
+
+          <div class="buttonz">
+
+            <form class="float-end" method="post" action="/delete/{{item.id}}">
+              <input type="hidden" name="remove" value="{{item.id}}">
+              <input type="submit" name="remove" value="Delete!">
+            </form>
+
+          </div>
+
+        </div>
+          
+        {% endfor %}
+
+        </ul>
+
+        <!-- setting the URL path for where the form is to be 'posted' to -->
+        <div class='form'>
+
+          <form action="/adddone" method="post">
+            <input type="text" name="name" class="form_input" placeholder="Add a card">
+            <input type="submit" name="submit" class="form_input_button" value="Add Card">
+          </form>
+
+        </div>
+
+      </div>
 
     </div>
+
   </div>
 {% endblock %}
