@@ -57,7 +57,7 @@ Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser
 2. Grab your API Key and Token by following [these instructions](https://trello.com/app-key).
 3. Store your API Key & Token in the .env file
 
-### Ansible: SSH into your Control Node
+## Ansible: SSH into your Control Node
 
 To connect to the Control Node via ssh, use the command:
 ```bash
