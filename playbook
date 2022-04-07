@@ -10,6 +10,7 @@
     todo_list: 619fc395c1c19106cad433b9
     doing_list: 619fc395c1c19106cad433ba
     done_list: 619fc395c1c19106cad433bb
+    
   tasks:
    - name: Install git
      yum:
