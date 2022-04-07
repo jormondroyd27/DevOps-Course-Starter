@@ -1,0 +1,64 @@
+---
+- name: Install To-Do App on new web server
+  hosts: managed_node
+  remote_user: ec2-user
+  vars:
+    secret_key: ffca2923fb0c9d9ebd47daf91d7e7065
+    secret_token: b98402aff272a5bc83ed04e819a196de32846a18c59f9bb6aec3b16c082a2062
+    secret_secret: 9b659fc10bb91b33c059890dab8fe6fa222c9797e952cf38093e15ba9bfd7aaa
+    board_id: 619fc395c1c19106cad433b8
+    todo_list: 619fc395c1c19106cad433b9
+    doing_list: 619fc395c1c19106cad433ba
+    done_list: 619fc395c1c19106cad433bb
+  tasks:
+   - name: Install git
+     yum:
+       name: git
+       state: latest
+     become: yes
+
+   - name: Install Python3
+     yum:
+       name: python3
+       state: latest
+
+   - name: Install Poetry
+     ansible.builtin.shell: curl -sSL https://install.python-poetry.org | python3 - 
+
+   - name: Create todoapp directory
+     ansible.builtin.file:
+       path: /opt/todoapp
+       state: directory
+       owner: ec2-user
+     become: yes
+
+   - name: Clone the todoapp repo
+     ansible.builtin.git:
+       repo: https://github.com/jormondroyd27/DevOps-Course-Starter.git
+       dest: /opt/todoapp
+       version: exercise-4
+
+   - name: Install Poetry dependencies
+     ansible.builtin.shell: 
+       chdir: /opt/todoapp
+       cmd: ~/.local/bin/poetry install
+
+   - name: Template a .env.j2 file to the
+     ansible.builtin.template:
+       src: ~/ansible/templates/.env.j2
+       dest: /opt/todoapp/.env
+     become: yes
+
+   - name: copy "todoapp.service" file to "/etc/systemd/system/todoapp.service" on host
+     ansible.builtin.copy:
+       remote_src: yes
+       src: /opt/todoapp/todoapp.service
+       dest: /etc/systemd/system/todoapp.service
+     become: yes
+
+   - name: Run todoapp on the host
+     ansible.builtin.systemd:
+       daemon_reload: yes
+       name: todoapp.service
+       state: restarted
+     become: yes
