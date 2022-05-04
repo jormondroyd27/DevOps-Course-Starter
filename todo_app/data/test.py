@@ -25,6 +25,7 @@ def fetch_list(list):
         if list_items['idList'] == list:
             todo_cards.append(list_items)
     return todo_cards
+    
 
     
 

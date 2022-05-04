@@ -56,3 +56,28 @@ Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser
 1. Create a Trello Account.
 2. Grab your API Key and Token by following [these instructions](https://trello.com/app-key).
 3. Store your API Key & Token in the .env file
+
+## Ansible: SSH into your Control Node
+
+To connect to the Control Node via ssh, use the command:
+```bash
+$ ssh username@ip-address
+```
+
+To connect without being prompted for a password each time, on your local machine, create an SSH key pair with the ssh-keygen command line tool:
+```bash
+$ ssh-keygen
+```
+
+This will generate the key pair in an ".ssh" directory in your home directory. Now we want to copy the public part onto the Control Node to declare that the owner of the private key is allowed access. Do this by running the command:
+```bash
+$ ssh-copy-id username@ip-address
+```
+
+You will be prompted for the password one last time, and then you will be able to connect via ssh without a password.
+
+To run your playbook, run the command: 
+```bash
+$ ansible-playbook <playbook-name> -i <inventory-name>
+```
+
