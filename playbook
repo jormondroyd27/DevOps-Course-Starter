@@ -2,14 +2,13 @@
 - name: Install To-Do App on new web server
   hosts: managed_node
   remote_user: ec2-user
-  vars:
-    secret_key: ffca2923fb0c9d9ebd47daf91d7e7065
-    secret_token: b98402aff272a5bc83ed04e819a196de32846a18c59f9bb6aec3b16c082a2062
-    secret_secret: 9b659fc10bb91b33c059890dab8fe6fa222c9797e952cf38093e15ba9bfd7aaa
-    board_id: 619fc395c1c19106cad433b8
-    todo_list: 619fc395c1c19106cad433b9
-    doing_list: 619fc395c1c19106cad433ba
-    done_list: 619fc395c1c19106cad433bb
+  vars_prompt:
+    - name: secret_key
+      prompt: What is your key?
+      private: no
+    - name: secret_token
+      prompt: What is your token?
+      private: no
     
   tasks:
    - name: Install git
