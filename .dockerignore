@@ -1,0 +1,10 @@
+.env
+.env.j2
+.env.template
+.env.test
+.gitignore
+todoapp.service
+Dockerfile
+README.md
+ansible/inventory
+ansible/playbook.yml
