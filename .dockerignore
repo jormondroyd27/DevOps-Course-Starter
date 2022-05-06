@@ -4,7 +4,9 @@
 .env.test
 .gitignore
 todoapp.service
-Dockerfile
+dockerfile
 README.md
 ansible/inventory
 ansible/playbook.yml
+.venv
+appenv
