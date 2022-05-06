@@ -80,4 +80,27 @@ To run your playbook, run the command:
 ```bash
 $ ansible-playbook <playbook-name> -i <inventory-name>
 ```
+## Docker: How to build the image
+
+Development:
+```bash
+$ docker build --target development --tag todo-app:dev .
+```
+
+Production:
+```bash
+$ docker build --target production --tag todo-app:dev .
+```
+
+### How to run the containers
+
+Development:
+```bash
+$ docker run -p 5000:5000 --env-file .env todo-app:prod
+```
+
+Production:
+```bash
+$ docker run -p 8000:8000 --env-file .env todo-app:prod
+```
 
