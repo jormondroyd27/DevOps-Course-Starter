@@ -1,8 +1,8 @@
 FROM python:3.9.12-buster as base
+WORKDIR /app
+COPY . /app/
 RUN pip install poetry
 RUN poetry install
-COPY . /app/
-WORKDIR /app
 
 FROM base as production
 EXPOSE 8000
