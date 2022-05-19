@@ -3,11 +3,29 @@
   hosts: managed_node
   remote_user: ec2-user
   vars_prompt:
+
     - name: secret_key
       prompt: What is your key?
       private: no
+  
     - name: secret_token
       prompt: What is your token?
+      private: no
+    
+    - name: board_id
+      prompt: What is the board ID?
+      private: no
+
+    - name: to_do_id
+      prompt: What is the ID of the To-Do list?
+      private: no
+
+    - name: doing_id
+      prompt: What is the ID of the Doing list?
+      private: no 
+
+    - name: done_id
+      prompt: What is the ID of the Done list?
       private: no
     
   tasks:
