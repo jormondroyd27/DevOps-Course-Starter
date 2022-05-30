@@ -80,4 +80,33 @@ To run your playbook, run the command:
 ```bash
 $ ansible-playbook <playbook-name> -i <inventory-name>
 ```
+## Docker: How to build the image
+
+Development:
+```bash
+$ docker build --target development --tag todo-app:dev .
+```
+
+Production:
+```bash
+$ docker build --target production --tag todo-app:prod .
+```
+
+### How to run the containers
+
+Development:
+```bash
+$ docker run -p 5000:5000 --env-file .env --mount type=bind,source="$(pwd)"/todo_app,target=/app/todo_app todo-app:dev
+```
+
+Including the bind mount (--mount) with type, source, and target specified will allow you to make changes to the code files and have them appear within the container without having to rebuild the image each time we modify the code.
+
+Production:
+```bash
+$ docker run -p 8000:8000 --env-file .env todo-app:prod
+```
+
+Passing docker the relevant environment variables (--env-file) at runtime will help to keep your secrets safe, while also keeping your image re-usable - you can spin up multiple containers, each using different credentials.
+
+
 
