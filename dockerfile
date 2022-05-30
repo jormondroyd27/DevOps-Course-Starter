@@ -1,8 +1,9 @@
 FROM python:3.9.12-buster as base
 WORKDIR /app
-COPY . /app/
 RUN pip install poetry
+COPY pyproject.toml poetry.lock /app/
 RUN poetry install
+COPY . /app/
 
 FROM base as production
 EXPOSE 8000
