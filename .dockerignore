@@ -6,7 +6,6 @@
 todoapp.service
 dockerfile
 README.md
-ansible/inventory
-ansible/playbook.yml
+ansible
 .venv
 appenv
