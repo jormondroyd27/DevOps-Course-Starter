@@ -18,7 +18,25 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-
 
 ## Dependencies
 
-The project uses a virtual environment to isolate package dependencies. To create the virtual environment and install required packages, run the following from your preferred shell:
+The project uses a virtual environment to isolate package dependencies. To create the virtual environment, run the following from your preferred shell:
+
+```bash
+$ python -m venv <environment_name>
+```
+
+To activate the virtual environment, on Windows machines, use this command:
+
+```bash
+$ <environment_name>\Scripts\activate.bat
+```
+
+On Linux:
+
+```bash
+$ . <environment_name>/bin/activate
+```
+
+To install the required packages, run the following from your preferred shell:
 
 ```bash
 $ poetry install
