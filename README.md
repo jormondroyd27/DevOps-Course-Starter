@@ -75,6 +75,23 @@ Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser
 2. Grab your API Key and Token by following [these instructions](https://trello.com/app-key).
 3. Store your API Key & Token in the .env file
 
+## Testing 
+
+Whilst in the DEVOPS-COURSE-STARTER directory, to test the code, run the command:
+```bash
+$ poetry run pytest
+```
+
+To run the unit tests, run the command:
+```bash
+$ poetry run pytest todo_app/test/test_viewmodel.py
+```
+
+To run the integration tests, run the command:
+```bash
+$ poetry run pytest todo_app/test/test_integration.py
+```
+
 ## Ansible: SSH into your Control Node
 
 To connect to the Control Node via ssh, use the command:
@@ -125,6 +142,8 @@ $ docker run -p 8000:8000 --env-file .env todo-app:prod
 ```
 
 Passing docker the relevant environment variables (--env-file) at runtime will help to keep your secrets safe, while also keeping your image re-usable - you can spin up multiple containers, each using different credentials.
+
+
 
 
 
