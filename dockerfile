@@ -14,3 +14,6 @@ FROM base as development
 EXPOSE 5000
 RUN chmod +x /app/flask.sh
 ENTRYPOINT [ "sh", "/app/flask.sh" ]
+
+FROM base as test
+ENTRYPOINT [ "sh", "/app/test.sh" ]

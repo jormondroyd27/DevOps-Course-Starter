@@ -20,6 +20,7 @@ def test_index_page(monkeypatch, client):
     monkeypatch.setattr(requests, 'get', get_lists_stub)
     response = client.get('/')
     assert response.status_code == 200
+    assert "Test card" in response.data.decode()
 
 class StubResponse():
     def __init__(self, fake_response_data):
@@ -34,6 +35,6 @@ def get_lists_stub(url, data):
         fake_response_data = {
             'id': '123abc',
             'name': 'To Do',
-            'cards': [{'idList': '456', 'name': 'Test card'}]
+            'cards': [{'idList': os.environ.get('todo_list'), 'name': 'Test card', 'id': '456'}]
         }
     return StubResponse(fake_response_data)
