@@ -15,4 +15,3 @@ def test_done_items():
     item = TodoItem("123", "test item")
     viewmodel = ViewModel([], [], [item])
     assert viewmodel.done_lists == [item]
-
