@@ -127,6 +127,11 @@ Production:
 $ docker build --target production --tag todo-app:prod .
 ```
 
+ests:
+```bash
+$ docker build --target test todo-app:test .
+```
+
 ### How to run the containers
 
 Development:
@@ -139,6 +144,11 @@ Including the bind mount (--mount) with type, source, and target specified will 
 Production:
 ```bash
 $ docker run -p 8000:8000 --env-file .env todo-app:prod
+```
+
+Test:
+```bash
+$ docker run --env-file .env.test todo-app:test
 ```
 
 Passing docker the relevant environment variables (--env-file) at runtime will help to keep your secrets safe, while also keeping your image re-usable - you can spin up multiple containers, each using different credentials.
