@@ -1,6 +1,7 @@
 .env
 .env.j2
 .env.template
+.env.test
 .gitignore
 todoapp.service
 dockerfile
