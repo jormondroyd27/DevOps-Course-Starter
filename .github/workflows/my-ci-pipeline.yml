@@ -16,9 +16,9 @@ jobs:
     - run: docker run --env-file .env.test todo-app:test
      
   dockerhub:
+    name: build and push production image
     needs: build
     if: github.event_name == 'push' && github.ref == 'module-8'
-    name: build and push production image
     runs-on: ubuntu-latest
     steps:
     - run: echo "Publishing!"
