@@ -127,9 +127,9 @@ Production:
 $ docker build --target production --tag todo-app:prod .
 ```
 
-ests:
+Test:
 ```bash
-$ docker build --target test todo-app:test .
+$ docker build --target test --tag todo-app:test .
 ```
 
 ### How to run the containers
