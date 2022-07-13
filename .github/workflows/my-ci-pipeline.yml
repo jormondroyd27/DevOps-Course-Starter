@@ -21,5 +21,14 @@ jobs:
     needs: build
     if: github.ref_name == 'module-8'
     steps:
-    - run: echo "Publishing!"
     - uses: actions/checkout@v2
+    
+    - name: Login to docker
+      run: echo ${{ secrets.DOCKER_ACCESS_TOKEN }} | docker login --username jormondroyd --password-stdin
+    
+    - name: Docker build
+      run: docker build --target production --tag jormondroyd/todo-app .
+
+    - name: Docker push
+      run: docker push jormondroyd/todo-app
+ 
