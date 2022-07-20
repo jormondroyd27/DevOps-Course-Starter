@@ -1,5 +1,4 @@
-FROM python:3.10.3-slim-buster as base
-RUN apt-get update
+FROM python:3.9.12-buster as base
 WORKDIR /app
 RUN pip install poetry
 COPY pyproject.toml poetry.lock /app/
@@ -17,4 +16,4 @@ CMD [ "sh", "/app/test.sh" ]
 FROM base as production
 EXPOSE 8000
 RUN chmod +x /app/gunicorn.sh
-CMD poetry run gunicorn -b 0.0.0.0:$PORT -w 2 "todo_app.app:create_app()"
+CMD [ "sh", "/app/gunicorn.sh" ]
