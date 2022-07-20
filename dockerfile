@@ -16,4 +16,4 @@ CMD [ "sh", "/app/test.sh" ]
 FROM base as production
 EXPOSE 8000
 RUN chmod +x /app/gunicorn.sh
-CMD [ "sh", "/app/gunicorn.sh" ]
+CMD poetry run gunicorn -b 0.0.0.0:$PORT -w 2 "todo_app.app:create_app()"
