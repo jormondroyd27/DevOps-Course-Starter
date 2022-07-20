@@ -43,6 +43,7 @@ jobs:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: "jimbob-todo-app"
         heroku_email: "james.ormondroyd@kpmg.co.uk"
+        usedocker: true
     
 
  
