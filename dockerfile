@@ -8,7 +8,7 @@ COPY . /app/
 FROM base as production
 EXPOSE 8000
 RUN chmod +x /app/gunicorn.sh
-CMD poetry run gunicorn -b 0.0.0.0$PORT -w 2 "todo_app.app:create_app()"
+CMD poetry run gunicorn -b 0.0.0.0:$PORT -w 2 "todo_app.app:create_app()"
 
 FROM base as development
 EXPOSE 5000
