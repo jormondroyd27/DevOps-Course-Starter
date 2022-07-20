@@ -8,7 +8,7 @@ COPY . /app/
 FROM base as production
 EXPOSE 8000
 RUN chmod +x /app/gunicorn.sh
-ENTRYPOINT [ "sh", "/app/gunicorn.sh" ]
+CMD [ "sh", "/app/gunicorn.sh" ]
 
 FROM base as development
 EXPOSE 5000
@@ -16,4 +16,4 @@ RUN chmod +x /app/flask.sh
 ENTRYPOINT [ "sh", "/app/flask.sh" ]
 
 FROM base as test
-ENTRYPOINT [ "sh", "/app/test.sh" ]
+CMD [ "sh", "/app/test.sh" ]
