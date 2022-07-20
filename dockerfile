@@ -1,4 +1,5 @@
-FROM python:3.9.12-buster as base
+FROM python:3.10.3-slim-buster as base
+RUN apt-get update
 WORKDIR /app
 RUN pip install poetry
 COPY pyproject.toml poetry.lock /app/
