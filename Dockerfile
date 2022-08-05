@@ -15,5 +15,6 @@ CMD [ "sh", "/app/test.sh" ]
 
 FROM base as production
 EXPOSE 8000
+ENV PORT=8000
 RUN chmod +x /app/gunicorn.sh
 CMD [ "sh", "/app/gunicorn.sh" ]
