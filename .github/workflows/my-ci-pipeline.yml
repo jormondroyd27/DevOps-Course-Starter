@@ -31,3 +31,10 @@ jobs:
 
     - name: Docker push
       run: docker push jormondroyd/todo-app
+  
+  webhook:
+  name: Azure Webhook
+  runs-on: ubuntu-latest
+  needs: dockerhub
+  steps:
+    run: curl -dH -X POST ${{ secrets.WEBHOOK_URL }}
