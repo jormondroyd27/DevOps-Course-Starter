@@ -153,6 +153,10 @@ $ docker run --env-file .env.test todo-app:test
 
 Passing docker the relevant environment variables (--env-file) at runtime will help to keep your secrets safe, while also keeping your image re-usable - you can spin up multiple containers, each using different credentials.
 
+### Accessing the Application
+
+The Application is deployed to Azure and can be [accessed via this link](https://jimmy-todo-app.azurewebsites.net/).
+
 
 
 

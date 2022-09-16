@@ -31,19 +31,10 @@ jobs:
 
     - name: Docker push
       run: docker push jormondroyd/todo-app
-
-  heroku:
-    name: Heroku deployment
+  
+  webhook:
+    name: Azure Webhook
     runs-on: ubuntu-latest
     needs: dockerhub
     steps:
-    - uses: actions/checkout@v2
-    - uses: akhileshns/heroku-deploy@v3.12.12
-      with:
-        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        heroku_app_name: "jimbob-todo-app"
-        heroku_email: "james.ormondroyd@kpmg.co.uk"
-        usedocker: true
-    
-
- 
+    - run: curl --fail -dH -X POST ${{ secrets.WEBHOOK_URL }}
