@@ -155,7 +155,7 @@ Passing docker the relevant environment variables (--env-file) at runtime will h
 
 ### Accessing the Application
 
-The Application is deployed to Azure and can be accessed via this link [https://jimmy-todo-app.azurewebsites.net/]
+The Application is deployed to Azure and can be [accessed via this link](https://jimmy-todo-app.azurewebsites.net/).
 
 
 
