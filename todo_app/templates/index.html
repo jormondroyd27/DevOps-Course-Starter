@@ -16,7 +16,8 @@
         <h2>To Do List</h2>
         <ul class="list-group mb-4">
         <!-- List the todo items here --> 
-          {% for item in view_model.todo_lists %}
+          {% for item in task_model.items %}
+          {% if item.status == 'TODO' %}
 
           <div class="item">
 
@@ -42,13 +43,14 @@
 
           </div>
 
+          {% endif %}
           {% endfor %}
 
         </ul>
         <!-- setting the URL path for where the form is to be 'posted' to -->
         <div class='form'>
 
-          <form action="/addtodo" method="post">
+          <form action="/addtasktodo" method="post">
             <input class="textbox" type="text" name="name" placeholder="Add a card">
             <input class="addcard" type="submit" name="" value="Add Card">
           </form>
@@ -62,7 +64,8 @@
         <h2>Doing List</h2>
         <ul class="list-group mb-4">
         <!-- List the doing items here --> 
-          {% for item in view_model.doing_lists %}
+          {% for item in task_model.items %}
+          {% if item.status == 'DOING' %}
 
             <div class="item">
 
@@ -87,14 +90,14 @@
               </div>
               
             </div>
-            
+          {% endif %}  
           {% endfor %}
   
         </ul>
         <!-- setting the URL path for where the form is to be 'posted' to -->
         <div class='form'>
 
-          <form action="/adddoing" method="post">
+          <form action="/addtaskdoing" method="post">
             <input type="text" name="name" placeholder="Add a card">
             <input type="submit" name="submit" value="Add Card">
           </form>
@@ -108,7 +111,8 @@
         <h2>Done List</h2>
         <ul class="list-group mb-4">
         <!-- List the doing items here -->   
-        {% for item in view_model.done_lists %}
+        {% for item in task_model.items %}
+        {% if item.status == 'DONE' %}
 
         <div class="item">
 
@@ -128,7 +132,8 @@
           </div>
 
         </div>
-          
+        
+        {% endif %}
         {% endfor %}
 
         </ul>
@@ -136,7 +141,7 @@
         <!-- setting the URL path for where the form is to be 'posted' to -->
         <div class='form'>
 
-          <form action="/adddone" method="post">
+          <form action="/addtaskdone" method="post">
             <input type="text" name="name" class="form_input" placeholder="Add a card">
             <input type="submit" name="submit" class="form_input_button" value="Add Card">
           </form>
