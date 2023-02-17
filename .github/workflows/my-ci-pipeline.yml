@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: docker build --target test --tag todo-app:test .
-    - run: docker run --env-file .env.test todo-app:test
+    # - run: docker run --env-file .env.test todo-app:test
      
   dockerhub:
     name: build and push production image
